@@ -74,7 +74,7 @@ body {
 </head>
 <body>
 <div class="login-form">
-    <form action="cek_registrasi.php" method="post">
+    <form action="cek_registrasi.php" method="POST">
         <h2 class="text-center">Form Pendaftaran</h2>
         <div class="form-group">
         	<input type="text" class="form-control" name="user_name" placeholder="Nama Lengkap" required>
@@ -83,8 +83,8 @@ body {
         	<input type="text" class="form-control" name="username" placeholder="Username" required>
         </div>
 		<div class="form-group">
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-            <input type="hidden" id="passwordd" name="passwordd">
+		<input type="password" id="password" name="password" autocomplete="off" class="form-control" placeholder="Password" required>
+		    <input type="hidden" id="pass" name="pass">
         </div>
         <div class="form-group">
         	<input type="text" class="form-control" name="user_npm" placeholder="NIM" required>
@@ -103,7 +103,8 @@ function hashUsingSHA(input) {
 function usingSHA(){
 	const plaintext = document.getElementById('password').value;
 	const texth = hashUsingSHA(plaintext);
-	document.getElementById('passwordd').value = texth;
+	
+	document.getElementById('pass').value = texth;
 }
 </script>
 </body>

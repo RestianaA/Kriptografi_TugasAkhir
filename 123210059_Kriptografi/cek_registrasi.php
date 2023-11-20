@@ -1,9 +1,9 @@
 <?php
         include "config.php";
-        @session_start();
+
         $user_name = @$_POST["user_name"];
         $username = @$_POST["username"];
-        $password = @$_POST["passwordd"]; 
+        $password = @$_POST["pass"]; 
         $user_npm = @$_POST["user_npm"];
         $tombol	= @$_POST["tombol"];
 
@@ -16,4 +16,4 @@
                 echo "Registrasi Gagal";
             }
         }   
-        ?>
+?>

@@ -1,23 +1,23 @@
 <?php
-        include "config.php";
-        @session_start();
-        $username = @$_POST["username"];
-        $password = @$_POST["password"];
+	session_start();
 
-        if(@$_POST["tombol"]){
-            $data = mysqli_query($koneksi,"SELECT * FROM tb_user WHERE username='$username' AND password='$password'");
-            $ambildata = mysqli_fetch_array($data);
-            $hitung = mysqli_num_rows($data);
-            if($hitung>0){
-                if($ambildata["user_name"]=="Resti"){
-                    header("location:admin.php");
-                }else{
-                    header("location:index.php");
-                }
-                
-            }else{
-                echo "Username atau Password salah!";
+	include 'config.php';
+
+	$username 	= $_POST['username'];
+	$password 	= $_POST['pass'];
+    $tombol	= @$_POST["tombol"];
+
+        if($tombol) {
+            $input = mysqli_query($koneksi, "SELECT * FROM tb_user WHERE username='$username' AND password='$password'");
+            $ambil = mysqli_fetch_array($input);
+            if($ambil['user_name']=="Resti" && $ambil['username']=="admin") {
+                echo "Login Berhasil";
+                echo "<script>location='admin.php';</script>";
+            } else{
+                echo "Login Berhasil";
+                echo "<script>location='index.php';</script>";
             }
+        }else {
+            echo "Registrasi Gagal";
         }
-        
 ?>

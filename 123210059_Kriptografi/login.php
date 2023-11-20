@@ -67,11 +67,11 @@
                 <input type="text" class="form-control" name="username" placeholder="Username" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                <input type="hidden" id="passwordd" name="passwordd">
+                <input type="password" id="password" name="password" autocomplete="off" class="form-control" placeholder="Password" required>
+                <input type="hidden" id="pass" name="pass" class="form-control" required>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-lg btn-block" value="LOGIN" name="tombol">
+                <input type="submit" onclick="usingSHA()" class="btn btn-primary btn-lg btn-block" value="LOGIN" name="tombol">
             </div>
         </form>
         <p class="text-center small">Belum punya akun ? <a href="registrasi.php" class="text-primary">Registrasi</a></p>
@@ -85,7 +85,8 @@ function hashUsingSHA(input) {
 function usingSHA(){
 	const plaintext = document.getElementById('password').value;
 	const texth = hashUsingSHA(plaintext);
-	document.getElementById('passwordd').value = texth;
+	
+	document.getElementById('pass').value = texth;
 }
 </script>
 </body>
